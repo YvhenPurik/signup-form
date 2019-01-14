@@ -12,3 +12,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.signUp-form{
+  
+  margin: 0 auto;
+  width: 400px;
+  height: 500px;
+  border: 1px solid #dedede;
+  border-radius: 1.5%
+}
+
+h2{
+  font-weight: 400;
+  color: #4a90e2;
+}
+
+input{
+  width: 340px;
+  height: 55px;
+  margin-top: 30px;
+  border:none;
+  border-bottom: 1px solid #dedede;
+  font-size: 23px;
+}
+
+input:focus{
+  outline: none
+}
+
+.progresLine-step1{
+margin-top: 20px;
+width: 100%;
+height: 10px;
+border: 1px solid #dedede;
+border-right: none;
+border-left: none;
+background: -moz-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #4a90e2), color-stop(33%, white), color-stop(33%, white), color-stop(100%, white));
+  background: -webkit-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
+  background: -o-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
+  background: -ms-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
+  background: linear-gradient(to right, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
+}
+.footerForm{
+  widows: 100%;
+  height: 1px;
+  background-color: #dedede;
+  margin-top: 80px;
+}
+
+ .buttonNextStep1{
+  background: none;
+  float: right;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color:#4a90e2;
+  margin-top: 30px
+}
