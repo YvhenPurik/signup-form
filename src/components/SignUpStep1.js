@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {createStore} from 'redux';
 import {connect} from 'react-redux';
-import '../App.css';
+
+// import '../App.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class SignUpStep1 extends Component {
  
@@ -14,19 +16,27 @@ class SignUpStep1 extends Component {
   }
 
   render() {
+     
+
     console.log(this.props.testStore)
     return (
       <div className="App">
+
+
       <div className="signUp-form">
       <div>
         <h2>Signup</h2>
       </div>
       <div className="progresLine-step1"></div>
-        <input ref={(input) => {this.emailInput = input}} />
-        <input ref={(input) => {this.passwordlInput = input}}></input>
-        <input ref={(input) => {this.confirmPasswordlInput = input}}></input>
+        <span>EMAIL</span>
+        <input className="InputregStep1" placeholder="" ref={(input) => {this.emailInput = input}} />
+        <span>PASSWORD</span>
+        <input className="InputregStep1 " placeholder="" ref={(input) => {this.passwordlInput = input}}></input>
+        <span>CONFIRM PASSWORD</span>
+        <input className="InputregStep1 " placeholder="" ref={(input) => {this.confirmPasswordlInput = input}}></input>
         <div className="footerForm"></div>
-        <button onClick={this.regData.bind(this)} className="buttonNextStep1">next ></button>
+        <Link to={"/step2"} onClick={this.regData.bind(this)}  className="buttonNextStep1">Next</Link>
+        
       </div>
     </div>
     );

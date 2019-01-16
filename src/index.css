@@ -6,6 +6,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  
+}
+
+.App {
+  text-align: center;
+  margin-top: 100px;
 }
 
 code {
@@ -16,9 +23,10 @@ code {
   
   margin: 0 auto;
   width: 400px;
-  height: 500px;
+  height: 550px;
   border: 1px solid #dedede;
-  border-radius: 1.5%
+  border-radius: 1.5%;
+  
 }
 
 h2{
@@ -26,17 +34,92 @@ h2{
   color: #4a90e2;
 }
 
-input{
+.InputregStep1{
   width: 340px;
-  height: 55px;
-  margin-top: 30px;
+  height: 25px;
+  padding-top: 77px;
   border:none;
   border-bottom: 1px solid #dedede;
   font-size: 23px;
 }
 
-input:focus{
+.InputregStep1[placeholder]{
+  
+  color: grey;
+  font-size: 20px;
+}
+.InputregStep1::-moz-placeholder{
+  color: grey;
+  font-size: 20px;
+} 
+.InputregStep1:-moz-placeholder{
+  color: grey;
+  font-size: 20px;
+} 
+.InputregStep1:-ms-input-placeholder {
+  color: grey;
+  font-size: 20px;
+}  
+
+.InputregStep1:focus{
   outline: none
+}
+
+.inputregStep2_age{
+  
+  width: 120px;
+  height: 40px;
+  margin-top: 80px;
+  border:none;
+  border: 1px solid #dedede;
+  font-size: 23px;
+  
+  
+}
+
+.inputregStep2_age::placeholder {
+  color: #dedede;
+}
+
+.inputregStep2_age[placeholder]{
+  
+  color: gray;
+  font-size: 20px;
+  text-align: center;
+}
+.inputregStep2_age::-moz-placeholder{
+  
+  font-size: 20px;
+} 
+.inputregStep2_age:-moz-placeholder{
+  
+  font-size: 20px;
+} 
+.inputregStep2_age:-ms-input-placeholder {
+  
+  font-size: 20px;
+}  
+
+
+
+.input_step2-wrap{
+  color: #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.inputregStep2_age:focus{
+  outline: none;
+}
+.rounding_corners_left{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.rounding_corners_right{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .progresLine-step1{
@@ -53,20 +136,56 @@ background: -moz-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white
   background: -ms-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
   background: linear-gradient(to right, #4a90e2 0%, #4a90e2 33%, white 33%, white 100%);
 }
+
+.progresLine-step2{
+  margin-top: 20px;
+  width: 100%;
+  height: 10px;
+  border: 1px solid #dedede;
+  border-right: none;
+  border-left: none;
+  background: -moz-linear-gradient(left, #4a90e2 0%, #4a90e2 66%, white 66%, white 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #4a90e2), color-stop(66%, white), color-stop(66%, white), color-stop(100%, white));
+    background: -webkit-linear-gradient(left, #4a90e2 0%, #4a90e2 66%, white 66%, white 100%);
+    background: -o-linear-gradient(left, #4a90e2 0%, #4a90e2 66%, white 66%, white 100%);
+    background: -ms-linear-gradient(left, #4a90e2 0%, #4a90e2 66%, white 66%, white 100%);
+    background: linear-gradient(to right, #4a90e2 0%, #4a90e2 66%, white 66%, white 100%);
+  }
+
 .footerForm{
   widows: 100%;
   height: 1px;
   background-color: #dedede;
   margin-top: 80px;
+  
 }
 
  .buttonNextStep1{
-  background: none;
+  display: inline;
+  margin-right: 20px;
   float: right;
   outline: none;
   border: none;
   cursor: pointer;
   font-size: 20px;
   color:#4a90e2;
-  margin-top: 30px
+  margin-top: 20px;
+  text-decoration: none;
+  background-image: url(./img/arrow.png);
+  background-repeat: no-repeat;
+  background-position: 100% 140%; 
+  background-size: 34% ;
+  z-index: 1000;
+  padding-right: 30px;
+}
+
+
+span{
+  display: block;
+  position: absolute;
+  transform: translate(30px, 30px);
+  color:#dedede;
+  
+  
+  
 }
