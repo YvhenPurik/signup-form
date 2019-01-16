@@ -2,6 +2,8 @@ This project was bootstrapped with Create React App
  
  SignUp App react redux
 
+ ![Alt text](appImg.png?raw=true "AppImg")
+
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "6.0.0",
