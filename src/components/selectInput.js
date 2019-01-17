@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export default class SelectInput extends Component {
 
     componentDidUpdate () {
-        console.log('onclick good', this.option.value);
+        // console.log('onclick good', this.option.value);
       }
    render(){
     return(
