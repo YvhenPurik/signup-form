@@ -13,6 +13,9 @@ const initialState = {
     ],
     dateBirth:[
       
+    ],
+    gender:[
+
     ]
       
     
@@ -43,6 +46,12 @@ function signUpData(state = initialState, action){
         return {
           ...state,
           dateBirth: [...state.dateBirth, action.payload]
+        }
+      }
+      if(action.type === 'ADD_GENDER'){
+        return {
+          ...state,
+          gender: [...state.gender, action.payload]
         }
       }
       

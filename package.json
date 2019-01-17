@@ -5,6 +5,7 @@
   "dependencies": {
     "radium": "^0.25.1",
     "react": "^16.7.0",
+    "react-btn-checkbox": "0.0.2",
     "react-dom": "^16.7.0",
     "react-redux": "6.0.0",
     "react-router-dom": "4.3.1",

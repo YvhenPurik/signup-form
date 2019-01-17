@@ -5,7 +5,6 @@ import SignUpStep1 from './components/SignUpStep1';
 import SignUpStep2 from './components/SignUpStep2';
 import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
 import {BrowserRouter, Route} from 'react-router-dom'
 import store from './store/reducer'
 

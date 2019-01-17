@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import {createStore} from 'redux';
 import {connect} from 'react-redux';
-
-// import '../App.css';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class SignUpStep1 extends Component {
  
@@ -34,7 +31,7 @@ class SignUpStep1 extends Component {
         <input className="InputregStep1 " placeholder="" ref={(input) => {this.passwordlInput = input}}></input>
         <span>CONFIRM PASSWORD</span>
         <input className="InputregStep1 " placeholder="" ref={(input) => {this.confirmPasswordlInput = input}}></input>
-        <div className="footerForm"></div>
+        <div className="footerForm_step1"></div>
         <Link to={"/step2"} onClick={this.regData.bind(this)}  className="buttonNextStep1">Next</Link>
         
       </div>
