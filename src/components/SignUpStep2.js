@@ -12,9 +12,7 @@ class SignUpStep2 extends Component {
     selected: ''
   };
 
-  componentDidUpdate () {
-    console.log(document.querySelector('input[name=myRadio]:checked').value);
-  }
+  
  
 
   regDataStep2() {
@@ -22,7 +20,8 @@ class SignUpStep2 extends Component {
     this.props.onAddDateBirthDay(this.dayBirth.value);
     this.props.onAddDateBirthDay(this.monthBirth.value);
     this.props.onAddDateBirthDay(this.yearhBirth.value);
-    this.props.onAddDataGender(document.querySelector('input[name=myRadio]:checked').value);
+    this.props.onAddDataGender(this.state.selected);
+    
   }
   
 
@@ -30,7 +29,7 @@ class SignUpStep2 extends Component {
 
   render() {
 
-    
+    console.log(this.state.selected)
     
     return (
    <div className="App">
@@ -65,7 +64,8 @@ class SignUpStep2 extends Component {
        <SelectInput/>
 
         <div className="footerForm"></div>
-        <Link to={"/step2"} onClick={this.regDataStep2.bind(this)}  className="buttonNextStep1">Next</Link>
+        <Link to={"/"}  className="buttonNextStep1">Back</Link>
+        <Link to={"/step3"} onClick={this.regDataStep2.bind(this)}  className="buttonNextStep1">Next</Link>
       </div>
     </div>
     );

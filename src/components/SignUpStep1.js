@@ -1,21 +1,97 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from "react-router-dom";
+import { bindAll } from "lodash";
 
 class SignUpStep1 extends Component {
+  constructor(props){
+    super(props)
+    bindAll(this, ['validation', 'regData'])
+  }
+  
+    
+  
+
  
 
+   state = {
+     email: '',
+     pass: '',
+     confirmPass: '',
+     erroreMail: 'EMAIL',
+     errorPass: 'PASSWORD',
+     errorConfirmPass: 'CONFIRM PASSWORD',
+     validEmail: false,
+     validPass: false,
+     validConfirmPass: false
+   }
+
+   
+
+   
+  validation(){
+    var emailRegExp = new RegExp("^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$");
+    
+    if(this.state.pass === ''){
+      this.setState({
+        errorPass: 'PASSWORD REQUAIRED',
+        validPass: false,
+      })
+      }else if(this.state.pass.length < 3){
+      this.setState({
+        errorPass: 'PASSWORD MUST BE MORE LETTERS',
+        validPass: false,
+      })
+    }else if(this.state.pass.length > 3){
+      this.setState({
+        errorPass: 'PASSWORD',
+        validPass: true,
+      })
+    }
+    if(this.state.pass !== this.state.confirmPass){
+      this.setState({
+        errorConfirmPass: 'PASSWORD DO NOT MATCH',
+        validConfirmPass: false,
+      })
+    }else if(this.state.pass === this.state.confirmPass){
+      this.setState({
+        errorConfirmPass: 'CONFIRM PASSWORD',
+        validConfirmPass: true,
+      })
+    }
+    if(this.state.email === ''){
+      this.setState({
+        erroreMail: 'EMAIL REQUAIRED',
+        validEmail: false,
+      })
+    }else if(emailRegExp.test(this.state.email)){
+      this.setState({
+        erroreMail: 'EMAIL',
+        validEmail: true,
+      })
+    }else if(!emailRegExp.test(this.state.email)){
+      this.setState({
+        erroreMail: 'EMAIL NOT VALID',
+        validEmail: false,
+      })
+    }
+
+
+  }
+
+   
+
+   
   regData() {
-    console.log('onclick good', this.emailInput.value);
-    this.props.onAddEmail(this.emailInput.value);
-    this.props.onAddPassword(this.passwordlInput.value)
-    this.props.onAddPasswordConfirm(this.confirmPasswordlInput.value)
+      this.props.onAddEmail(this.emailInput.value);
+      this.props.onAddPassword(this.passwordlInput.value);
+      this.props.onAddPasswordConfirm(this.confirmPasswordlInput.value);
   }
 
   render() {
      
 
-    console.log(this.props.testStore)
+    // console.log('  pass--> ',this.state.pass, '  confirm--> ', this.state.confirmPass, ' email->  ', this.state.email)
     return (
       <div className="App">
 
@@ -23,16 +99,34 @@ class SignUpStep1 extends Component {
       <div className="signUp-form">
       <div>
         <h2>Signup</h2>
-      </div>
+    </div>
       <div className="progresLine-step1"></div>
-        <span>EMAIL</span>
-        <input className="InputregStep1" placeholder="" ref={(input) => {this.emailInput = input}} />
-        <span>PASSWORD</span>
-        <input className="InputregStep1 " placeholder="" ref={(input) => {this.passwordlInput = input}}></input>
-        <span>CONFIRM PASSWORD</span>
-        <input className="InputregStep1 " placeholder="" ref={(input) => {this.confirmPasswordlInput = input}}></input>
+      <span style={this.state.erroreMail !== 'EMAIL' ? {color:"red"} : {color:"grey"}}>
+        {this.state.erroreMail}
+        </span>
+        <input className="InputregStep1" onChange={(e) => this.setState({ email: e.target.value })} 
+        placeholder="" ref={(input) => {this.emailInput = input}} />
+
+        <span style={this.state.errorPass !== 'PASSWORD' ? {color:"red"} : {color:"grey"}}>
+        {this.state.errorPass}
+        </span>
+
+        <input className="InputregStep1 " onChange={(e) => this.setState({ pass: e.target.value })} placeholder="" ref={(input) => {this.passwordlInput = input}}></input>
+        
+        <span style={this.state.errorConfirmPass !== 'CONFIRM PASSWORD' ? {color:"red"} : {color:"grey"}}>
+        {this.state.errorConfirmPass}
+        </span>
+
+        <input className="InputregStep1 " onChange={(e) => this.setState({ confirmPass: e.target.value })} 
+        placeholder="" ref={(input) => {this.confirmPasswordlInput = input}}>
+        </input>
+
         <div className="footerForm_step1"></div>
-        <Link to={"/step2"} onClick={this.regData.bind(this)}  className="buttonNextStep1">Next</Link>
+        <Link to={this.state.formValid ? "/step2" : "/"}  
+              onClick={this.state.validEmail && this.state.validPass && this.state.validConfirmPass ? 
+              this.regData : this.validation}  
+              className="buttonNextStep1">Next
+        </Link>
         
       </div>
     </div>
