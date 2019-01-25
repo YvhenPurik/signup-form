@@ -3,10 +3,14 @@ import {connect} from 'react-redux';
 import { Link } from "react-router-dom";
 import { bindAll } from "lodash";
 
+
 class SignUpStep1 extends Component {
   constructor(props){
     super(props)
     bindAll(this, ['validation', 'regData'])
+
+    
+
   }
   
     
@@ -23,7 +27,9 @@ class SignUpStep1 extends Component {
      errorConfirmPass: 'CONFIRM PASSWORD',
      validEmail: false,
      validPass: false,
-     validConfirmPass: false
+     validConfirmPass: false,
+     formValid: '',
+     
    }
 
    
@@ -34,7 +40,7 @@ class SignUpStep1 extends Component {
     
     if(this.state.pass === ''){
       this.setState({
-        errorPass: 'PASSWORD REQUAIRED',
+        errorPass: 'PASSWORD IS REQUIRED',
         validPass: false,
       })
       }else if(this.state.pass.length < 3){
@@ -61,7 +67,7 @@ class SignUpStep1 extends Component {
     }
     if(this.state.email === ''){
       this.setState({
-        erroreMail: 'EMAIL REQUAIRED',
+        erroreMail: 'EMAIL IS REQUIRED',
         validEmail: false,
       })
     }else if(emailRegExp.test(this.state.email)){
@@ -75,22 +81,31 @@ class SignUpStep1 extends Component {
         validEmail: false,
       })
     }
-
-
-  }
+}
 
    
-
-   
-  regData() {
-      this.props.onAddEmail(this.emailInput.value);
-      this.props.onAddPassword(this.passwordlInput.value);
-      this.props.onAddPasswordConfirm(this.confirmPasswordlInput.value);
-  }
+regData(){
+  this.props.onAddEmail(this.emailInput.value);
+  this.props.onAddPassword(this.passwordlInput.value);
+  this.props.onAddPasswordConfirm(this.confirmPasswordlInput.value);
+  this.props.formStepOneValid(true)
+  this.setState({
+    email: '',
+    pass: '',
+    confirmPass: '',
+    
+  })
+}
+  
+      
+ 
 
   render() {
-     
-
+    
+    if(this.state.validEmail && this.state.confirmPass && this.state.validConfirmPass){
+      this.regData()
+      console.log('form valid')
+      }
     // console.log('  pass--> ',this.state.pass, '  confirm--> ', this.state.confirmPass, ' email->  ', this.state.email)
     return (
       <div className="App">
@@ -122,9 +137,8 @@ class SignUpStep1 extends Component {
         </input>
 
         <div className="footerForm_step1"></div>
-        <Link to={this.state.formValid ? "/step2" : "/"}  
-              onClick={this.state.validEmail && this.state.validPass && this.state.validConfirmPass ? 
-              this.regData : this.validation}  
+        <Link to={this.state.formValid ? "/step2" : "/" }  
+              onClick={this.validation}  
               className="buttonNextStep1">Next
         </Link>
         
@@ -147,6 +161,9 @@ export default connect(
   },
   onAddPasswordConfirm: (PassConfirm) => {
     dispatch({ type: 'ADD_PASS_CONFIRM', payload: PassConfirm});
+  },
+  formStepOneValid: (formStepOneValid) => {
+    dispatch({ type: 'ADD_VALID_FORM_STEP1', payload: formStepOneValid});
   }
 
   })

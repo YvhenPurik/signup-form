@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
+ class SelectInput extends Component {
 
-export default class SelectInput extends Component {
-
-    componentDidUpdate () {
-        // console.log('onclick good', this.option.value);
-      }
+    
    render(){
     return(
     <div>
@@ -22,3 +20,14 @@ export default class SelectInput extends Component {
        )
    }
 }
+
+export default connect(
+  state => ({
+    testStore: state
+  }),
+  dispatch => ({
+   onAddHearAbout: (HearAbout) => {
+     dispatch({ type: 'ADD_HEAR_ABOUT', payload: HearAbout});
+   },
+  })
+)(SelectInput);

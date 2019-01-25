@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { Link } from "react-router-dom";
 import SelectInput from './selectInput'
+import SelectAge from './selectAge'
 
 // import '../App.css';
 
@@ -40,11 +41,8 @@ class SignUpStep2 extends Component {
       <div className="progresLine-step2"></div>
       <span className="span_step2">DATE OF BIRTH</span>
       <div className="input_step2-wrap">
-      
-       <input type="number" min="1" max="31" ref={(input) => {this.dayBirth = input}} className="inputregStep2_age rounding_corners_left" placeholder="DD"></input>
-        <input type="number" min="1" max="12" ref={(input) => {this.monthBirth = input}} className="inputregStep2_age" placeholder="MM"></input>
-
-       <input type="number" min="1900" max="2019" ref={(input) => {this.yearhBirth = input}} className="inputregStep2_age rounding_corners_right" placeholder="YYYY"></input>
+       <SelectAge/>
+       
        </div>
        <span className="span_step_gender">GENDER</span>
        <div className="radio-group">

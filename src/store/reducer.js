@@ -16,6 +16,9 @@ const initialState = {
     ],
     gender:[
 
+    ],
+    validForm1:[
+        
     ]
       
     
@@ -52,6 +55,12 @@ function signUpData(state = initialState, action){
         return {
           ...state,
           gender: [...state.gender, action.payload]
+        }
+      }
+      if(action.type === 'ADD_VALID_FORM_STEP1'){
+        return {
+          ...state,
+          validForm1: [...state.validForm1, action.payload]
         }
       }
       
