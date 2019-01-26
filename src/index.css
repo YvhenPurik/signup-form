@@ -68,7 +68,7 @@ h2{
 .inputregStep2_age{
   
   width: 120px;
-  height: 40px;
+  height: 45px;
   margin-top: 80px;
   border:none;
   border: 1px solid #dedede;
@@ -152,6 +152,21 @@ background: -moz-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white
     background: linear-gradient(to right, #4a90e2 0%, #4a90e2 66%, white 66%, white 100%);
   }
 
+  .progresLine-step3{
+    margin-top: 20px;
+    width: 100%;
+    height: 10px;
+    border: 1px solid #dedede;
+    border-right: none;
+    border-left: none;
+    background: -moz-linear-gradient(left, #4a90e2 0%, #4a90e2 100%, white 100%, white 100%);
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%, #4a90e2), color-stop(100%, white), color-stop(100%, white), color-stop(100%, white));
+      background: -webkit-linear-gradient(left, #4a90e2 0%, #4a90e2 100%, white 66%, white 100%);
+      background: -o-linear-gradient(left, #4a90e2 0%, #4a90e2 100%, white 100%, white 100%);
+      background: -ms-linear-gradient(left, #4a90e2 0%, #4a90e2 100%, white 100%, white 100%);
+      background: linear-gradient(to right, #4a90e2 0%, #4a90e2 100%, white 100%, white 100%);
+    }
+
 
 
  .buttonNextStep1{
@@ -166,6 +181,25 @@ background: -moz-linear-gradient(left, #4a90e2 0%, #4a90e2 33%, white 33%, white
   margin-top: 20px;
   text-decoration: none;
   background-image: url(./img/arrow.png);
+  background-repeat: no-repeat;
+  background-position: 100% 140%; 
+  background-size: 34% ;
+  z-index: 1000;
+  padding-right: 30px;
+}
+
+.buttonBack{
+  display: inline;
+  margin-right: 20px;
+  float: left;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color:#dedede;
+  margin-top: 20px;
+  margin-left: 20px;
+  text-decoration: none;
   background-repeat: no-repeat;
   background-position: 100% 140%; 
   background-size: 34% ;
@@ -225,6 +259,14 @@ label + input[type=radio] + label {
   color:#857d7b;
 }
 
+.span_step2_error{
+  display: block;
+  position: absolute;
+  transform: translate(120px, 47px);
+ 
+  color: #db3036
+}
+
 .span_step_gender{
   display: block;
   position: absolute;
@@ -272,7 +314,6 @@ select {
   outline: none;
   color: #857d7b;
   border: 1px solid #dedede;
-  border-radius: 5px;
   font-size: 20px;
   background: #fff; 
 }
@@ -290,11 +331,11 @@ select {
   
 }
 
-option{
-  font-size: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 20px;
+select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;       /* remove default arrow */
+  padding-left: 40px;
 }
 /*target Internet Explorer 9 and Internet Explorer 10:*/
 @media screen and (min-width:0\0) { 

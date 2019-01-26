@@ -2,25 +2,14 @@ import {createStore} from 'redux';
 
 
 const initialState = {
-    email: [
-  
-    ],
-    pass: [
-  
-    ],
-    confirmPass: [
-  
-    ],
-    dateBirth:[
-      
-    ],
-    gender:[
-
-    ],
-    validForm1:[
-        
-    ]
-      
+    email: [],
+    pass: [],
+    confirmPass: [],
+    dateBirth:[],
+    gender:[],
+    hearAbout:[],
+    validForm1:[],
+    validForm2:[],
     
   }
   
@@ -61,6 +50,18 @@ function signUpData(state = initialState, action){
         return {
           ...state,
           validForm1: [...state.validForm1, action.payload]
+        }
+      }
+      if(action.type === 'ADD_HEAR_ABOUT'){
+        return {
+          ...state,
+          hearAbout: [...state.hearAbout, action.payload]
+        }
+      }
+      if(action.type === 'ADD_VALID_FORM_STEP2'){
+        return {
+          ...state,
+          validForm2: [...state.validForm2, action.payload]
         }
       }
       

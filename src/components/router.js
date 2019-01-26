@@ -15,7 +15,7 @@ export default class Router extends Component {
     constructor(props){
         super(props)
         store.subscribe(() => {
-            console.log(store.getState());
+            
             this.setState({
                 validForm1: store.getState().validForm1
             })
@@ -33,14 +33,13 @@ export default class Router extends Component {
     
     
     render(){
-        let some = this.state.validForm1;
-        console.log(some);
+        
         
         return (
             
             <BrowserRouter>
               <div>
-              <Route exact path="/" component={this.validForm1.bind(this)}/>
+              <Route exact path="/" component={this.validForm1}/>
               <Route path="/step2" component={SignUpStep2} />
               <Route path="/step3" component={SignUpStep3} />
               </div>
@@ -50,4 +49,3 @@ export default class Router extends Component {
     }
 }
     
-

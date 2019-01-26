@@ -12,13 +12,7 @@ class SignUpStep1 extends Component {
     
 
   }
-  
-    
-  
-
- 
-
-   state = {
+  state = {
      email: '',
      pass: '',
      confirmPass: '',
@@ -36,7 +30,7 @@ class SignUpStep1 extends Component {
 
    
   validation(){
-    var emailRegExp = new RegExp("^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+\.)+[a-z]{2,6}$");
+    var emailRegExp = new RegExp("^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+.)+[a-z]{2,6}$");
     
     if(this.state.pass === ''){
       this.setState({
@@ -104,7 +98,7 @@ regData(){
     
     if(this.state.validEmail && this.state.confirmPass && this.state.validConfirmPass){
       this.regData()
-      console.log('form valid')
+      
       }
     // console.log('  pass--> ',this.state.pass, '  confirm--> ', this.state.confirmPass, ' email->  ', this.state.email)
     return (
@@ -116,19 +110,19 @@ regData(){
         <h2>Signup</h2>
     </div>
       <div className="progresLine-step1"></div>
-      <span style={this.state.erroreMail !== 'EMAIL' ? {color:"red"} : {color:"grey"}}>
+      <span style={this.state.erroreMail !== 'EMAIL' ? {color:"#db3036"} : {color:"grey"}}>
         {this.state.erroreMail}
         </span>
         <input className="InputregStep1" onChange={(e) => this.setState({ email: e.target.value })} 
         placeholder="" ref={(input) => {this.emailInput = input}} />
 
-        <span style={this.state.errorPass !== 'PASSWORD' ? {color:"red"} : {color:"grey"}}>
+        <span style={this.state.errorPass !== 'PASSWORD' ? {color:"#db3036"} : {color:"grey"}}>
         {this.state.errorPass}
         </span>
 
         <input className="InputregStep1 " onChange={(e) => this.setState({ pass: e.target.value })} placeholder="" ref={(input) => {this.passwordlInput = input}}></input>
         
-        <span style={this.state.errorConfirmPass !== 'CONFIRM PASSWORD' ? {color:"red"} : {color:"grey"}}>
+        <span style={this.state.errorConfirmPass !== 'CONFIRM PASSWORD' ? {color:"#db3036"} : {color:"grey"}}>
         {this.state.errorConfirmPass}
         </span>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import { Link } from "react-router-dom";
+
 
 
 // import '../App.css';
@@ -20,8 +20,11 @@ class SignUpStep3 extends Component {
     return (
    <div className="App">
       <div className="signUp-form">
-      
-        <Link to={"/step2"}   className="buttonNextStep1">Next</Link>
+      <div>
+        <h2>Thank you!</h2>
+      </div>
+      <div className="progresLine-step3"></div>
+        
       </div>
     </div>
     );
