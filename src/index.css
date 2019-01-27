@@ -344,3 +344,31 @@ select {
       display:none;
   }
 }
+.imgSucess{
+  padding-top: 60px;
+  width: 60%;
+}
+.btn_go_dashboard{
+  padding: 15px 32px 15px 20px;
+  border: 1px solid #4a90e2;
+  background: url(./img/arrow.png) 96% / 12%  no-repeat #fff;
+  color:#4a90e2;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.btn_go_dashboard:active {
+  outline: none;
+  
+}
+.btn_go_dashboard:focus {
+  outline: none;
+  
+}
+
+.btn_go_dashboard:hover {
+  outline: none;
+  cursor: pointer;
+  background: url(./img/arrow.png) 98% / 12%  no-repeat #fff;
+  
+}
+
