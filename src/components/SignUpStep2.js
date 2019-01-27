@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 import { bindAll } from "lodash";
 
-// import '../App.css';
-
 class SignUpStep2 extends Component {
 
   constructor(props){
@@ -24,34 +22,41 @@ class SignUpStep2 extends Component {
     errorAge: false,
     msgAge: 'DATE OF BIRTH',
     msgGender:'GENDER',
-    
-    
+    formValid: false,
   };
 
-  
- 
-
-  regDataStep3() {
-    
+regDataStep3() {
+  if(this.state.selected && !this.state.optionDay && !this.state.optionMonth && !this.state.optionYear && !this.state.errorAge){
     this.props.onAddDateBirthDay(this.dayBirth.value);
     this.props.onAddDateBirthDay(this.monthBirth.value);
     this.props.onAddDateBirthDay(this.yearhBirth.value);
     this.props.onAddDataGender(this.state.selected);
     this.props.onAddDataHear(this.hearAbout.value);
+    this.props.validForm2(true);
+    
+    this.setState({
+      formValid: true,
+    })
+  }
+    
     
     if(this.state.optionMonth){
       this.setState({
         msgAge: 'MOTH MUST BE SELECTED'
       })
     }
-    if(this.state.optionDay){
+    else if(this.state.optionDay){
       this.setState({
         msgAge: 'DAY MUST BE SELECTED'
       })
     }
-    if(this.state.optionYear){
+   else if(this.state.optionYear){
       this.setState({
         msgAge: 'YEAR MUST BE SELECTED'
+      })
+    }else if(!this.state.optionYear){
+      this.setState({
+        msgAge: 'DATE OF BIRTH'
       })
     }
 
@@ -59,7 +64,7 @@ class SignUpStep2 extends Component {
       this.setState({
         msgGender: 'GENDER MUST BE SELECTED'
       })
-    }else{
+    }else if(this.state.selected !== ''){
       this.setState({
         msgGender: 'GENDER'
       })
@@ -84,12 +89,12 @@ class SignUpStep2 extends Component {
   changeYear(){
     let nowYear = new Date().getFullYear();
     if(18 >= +nowYear - +this.yearhBirth.value){
-      console.log('вам нет 18')
+     
       this.setState({
         errorAge: true
       })
     }else{
-      console.log('18+')
+      
       this.setState({
         errorAge: false
       })
@@ -108,11 +113,6 @@ class SignUpStep2 extends Component {
     let year = [], iYear = nowYear, lenYear = 1930;
     while (--iYear >= lenYear) year.push(iYear);
     
-    let spanError = {
-      
-      
-    };
-    
     return (
    <div className="App">
       <div className="signUp-form">
@@ -125,10 +125,12 @@ class SignUpStep2 extends Component {
       this.state.errorAge ? 
       <span className={this.state.errorAge ?"span_step2_error" : "span_step2" } >
       YOUR AGE MUST BE 18+</span> : 
-      <span className={"span_step2"} style={this.state.msgAge === 'MOTH MUST BE SELECTED' || this.state.msgAge === 'DAY MUST BE SELECTED' || this.state.msgAge === 'YEAR MUST BE SELECTED' ? {color:"#db3036", transform: "translate(120px, 47px)"} : null} >{this.state.msgAge}</span> 
+      <span className={"span_step2"} style={this.state.msgAge === 'MOTH MUST BE SELECTED' 
+      || this.state.msgAge === 'DAY MUST BE SELECTED' 
+      || this.state.msgAge === 'YEAR MUST BE SELECTED' ? {color:"#db3036", transform: "translate(120px, 47px)"} : null} >{this.state.msgAge}</span> 
       }
       <div className="input_step2-wrap">
-       {/* <SelectAge/> */}
+      
 
         <select onFocus={this.dayHandler}  ref={(input) => {this.dayBirth = input}} className="inputregStep2_age rounding_corners_left" placeholder="DD">
         {this.state.optionDay ?<option>DD</option> : null} 
@@ -142,8 +144,9 @@ class SignUpStep2 extends Component {
         return <option key={iMonth} index={iMonth} value={iMonth}>{iMonth}</option>;
          })}
         </select> 
-        {/* onChange={(e) => this.setState({ validAge: e.target.value })} */}
-       <select onFocus={this.yearHandler} ref={(input) => {this.yearhBirth = input}}  onChange={ this.changeYear} className="inputregStep2_age rounding_corners_right" placeholder="YYYY">
+      
+       <select onFocus={this.yearHandler} ref={(input) => {this.yearhBirth = input}}  
+       onChange={ this.changeYear} className="inputregStep2_age rounding_corners_right" placeholder="YYYY">
        {this.state.optionYear ?<option>YYYY</option> : null} 
        {year.map(function (iYear) {
         return <option key={iYear} index={iYear} value={iYear}>{iYear}</option>;
@@ -151,7 +154,8 @@ class SignUpStep2 extends Component {
        </select>
        
        </div>
-       <span className="span_step_gender" style={this.state.msgGender === 'GENDER MUST BE SELECTED' ? {color:"#db3036", transform: "translate(120px, 27px)"} : null}>{this.state.msgGender}</span>
+       <span className="span_step_gender" style={this.state.msgGender === 'GENDER MUST BE SELECTED' ? 
+       {color:"#db3036", transform: "translate(120px, 27px)"} : null}>{this.state.msgGender}</span>
        <div className="radio-group">
         <input type='radio' id="option-one" name='myRadio' value='MALE'
           checked={this.state.selected === 'MALE'} onChange={(e) => this.setState({ selected: e.target.value })} />

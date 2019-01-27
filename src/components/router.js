@@ -8,7 +8,7 @@ import store from '../store/reducer'
 
 
 
-        // var lastItem = formOneValid[formOneValid.length - 1]
+       
         
         
 export default class Router extends Component {
@@ -17,12 +17,15 @@ export default class Router extends Component {
         store.subscribe(() => {
             
             this.setState({
-                validForm1: store.getState().validForm1
+                validForm1: store.getState().validForm1,
+                validForm2: store.getState().validForm2
             })
         });
 
         this.state ={
-            validForm1: false
+            validForm1: false,
+            validForm2: false,
+
         }
 
         
@@ -30,6 +33,7 @@ export default class Router extends Component {
 
     
     validForm1 = () => this.state.validForm1 ? <Redirect to="/step2"/> : <SignUpStep1/>;
+    validForm2 = () => this.state.validForm2 ? <Redirect to="/step3"/> : <SignUpStep2/>;
     
     
     render(){
@@ -40,7 +44,7 @@ export default class Router extends Component {
             <BrowserRouter>
               <div>
               <Route exact path="/" component={this.validForm1}/>
-              <Route path="/step2" component={SignUpStep2} />
+              <Route path="/step2" component={this.validForm2} />
               <Route path="/step3" component={SignUpStep3} />
               </div>
             </BrowserRouter>

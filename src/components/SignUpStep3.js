@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
+import store from '../store/reducer'
 
-
-
-
-
-// import '../App.css';
 
 class SignUpStep3 extends Component {
-
+  
+         
+        
  
-  
 
-  
-
-  render() {
-
-    
-    
-    return (
+render() {
+  console.log(store.getState())
+return (
    <div className="App">
       <div className="signUp-form">
       <div>

@@ -2,14 +2,14 @@ import {createStore} from 'redux';
 
 
 const initialState = {
-    email: [],
-    pass: [],
-    confirmPass: [],
-    dateBirth:[],
-    gender:[],
-    hearAbout:[],
-    validForm1:[],
-    validForm2:[],
+    email: '',
+    pass: '',
+    confirmPass: '',
+    dateBirth:'',
+    gender:'',
+    hearAbout:'',
+    validForm1:undefined,
+    validForm2:undefined,
     
   }
   
@@ -17,20 +17,20 @@ function signUpData(state = initialState, action){
       if(action.type === 'ADD_EMAIL'){
         return {
           ...state,
-          email: [...state.email, action.payload]
+          email:  action.payload
         }
     
       }
       if(action.type === 'ADD_PASS'){
         return {
           ...state,
-          pass: [...state.pass, action.payload]
+          pass: action.payload
         }
       }
       if(action.type === 'ADD_PASS_CONFIRM'){
         return {
           ...state,
-          confirmPass: [...state.confirmPass, action.payload]
+          confirmPass:  action.payload
         }
       }
 
@@ -43,25 +43,25 @@ function signUpData(state = initialState, action){
       if(action.type === 'ADD_GENDER'){
         return {
           ...state,
-          gender: [...state.gender, action.payload]
+          gender:  action.payload
         }
       }
       if(action.type === 'ADD_VALID_FORM_STEP1'){
         return {
           ...state,
-          validForm1: [...state.validForm1, action.payload]
+          validForm1:  action.payload
         }
       }
       if(action.type === 'ADD_HEAR_ABOUT'){
         return {
           ...state,
-          hearAbout: [...state.hearAbout, action.payload]
+          hearAbout:  action.payload
         }
       }
       if(action.type === 'ADD_VALID_FORM_STEP2'){
         return {
           ...state,
-          validForm2: [...state.validForm2, action.payload]
+          validForm2: action.payload
         }
       }
       

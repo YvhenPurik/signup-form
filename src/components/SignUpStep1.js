@@ -26,10 +26,7 @@ class SignUpStep1 extends Component {
      
    }
 
-   
-
-   
-  validation(){
+validation(){
     var emailRegExp = new RegExp("^[-._a-z0-9]+@(?:[a-z0-9][-a-z0-9]+.)+[a-z]{2,6}$");
     
     if(this.state.pass === ''){
@@ -91,16 +88,13 @@ regData(){
   })
 }
   
-      
- 
-
-  render() {
+render() {
     
     if(this.state.validEmail && this.state.confirmPass && this.state.validConfirmPass){
       this.regData()
       
       }
-    // console.log('  pass--> ',this.state.pass, '  confirm--> ', this.state.confirmPass, ' email->  ', this.state.email)
+   
     return (
       <div className="App">
 
