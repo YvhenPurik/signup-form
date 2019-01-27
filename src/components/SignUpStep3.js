@@ -10,7 +10,8 @@ class SignUpStep3 extends Component {
  
 
 render() {
-  console.log(store.getState())
+let dataForBeckend = JSON.stringify(store.getState())
+  console.log(dataForBeckend)
 return (
    <div className="App">
       <div className="signUp-form">

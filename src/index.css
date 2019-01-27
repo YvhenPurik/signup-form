@@ -355,6 +355,7 @@ select {
   color:#4a90e2;
   font-size: 18px;
   border-radius: 5px;
+  margin-top: 40px;
 }
 .btn_go_dashboard:active {
   outline: none;
@@ -368,6 +369,7 @@ select {
 .btn_go_dashboard:hover {
   outline: none;
   cursor: pointer;
+ 
   background: url(./img/arrow.png) 98% / 12%  no-repeat #fff;
   
 }

@@ -9,7 +9,7 @@ class SignUpStep2 extends Component {
 
   constructor(props){
     super(props)
-    bindAll(this, ['dayHandler', 'monthHandler', 'yearHandler', 'changeYear'])
+    bindAll(this, ['dayHandler', 'monthHandler', 'yearHandler', 'changeYear', 'backLink'])
 
   }
 
@@ -69,6 +69,10 @@ regDataStep3() {
         msgGender: 'GENDER'
       })
     }
+  }
+
+  backLink(){
+    this.props.validForm1(false);
   }
   
   dayHandler(){
@@ -182,7 +186,7 @@ regDataStep3() {
       </div> 
 
         <div className="footerForm"></div>
-        <Link to={"/"}  className="buttonBack">Back</Link>
+        <Link to={"/"}  onClick={this.backLink} className="buttonBack">Back</Link>
         <Link to={"/step2"} onClick={this.regDataStep3.bind(this)}  className="buttonNextStep1">Next</Link>
       </div>
     </div>
